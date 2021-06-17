@@ -31,19 +31,28 @@
     	<property name="password" value="tiger"></property>
     </bean>
     
-    <!-- MemberDAO DAO 구성할 때 localDataSource 주입해 주세요-->
+    <!-- MemberDAO DAO 구성할 때 localDataSource 주입해 주세요 -->
     <bean id="memberDAO" class="com.test.mvc.MemberDAO">
     	<property name="dataSource">
     		<ref bean="localDataSource"/>
     	</property>
     </bean>
     
-    <!-- MemberListController 컨트롤러 구성할 때 memberDAO 주입해 주세요-->
+    <!-- MemberListController 컨트롤러 구성할 때 memberDAO 주입해 주세요 -->
     <bean name="/memberlist.action" class="com.test.mvc.MemberListController">
     	<property name="dao">
     		<ref bean="memberDAO"/>
     	</property>
     </bean>
+    
+    <!-- MemberInsertController 컨트롤러 구성할 때 memberDAO 주입해 주세요 -->
+    <bean name="/memberinsert.action" class="com.test.mvc.MemberInsertController">
+    	<property name="dao">
+    		<ref bean="memberDAO"/>
+    	</property>
+    </bean>
+    
+    <!-- 하나의 memberDAO에 memberlistcontroller랑 memberinsertcontroller 주입 받음 -->
 
     
 

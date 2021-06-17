@@ -61,7 +61,7 @@
 </div>
 
 <div>
-	<form method="post" id="memberForm">
+	<form action="memberinsert.action" method="post" id="memberForm">
 		이름 <input type="text" name="name" id="name" class="control" required="required">
 		<br>
 		전화 <input type="text" name="telephone" id="telephone" class="control" required="required">
