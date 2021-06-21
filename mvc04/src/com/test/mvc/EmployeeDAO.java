@@ -21,14 +21,13 @@ import javax.sql.DataSource;
 public class EmployeeDAO implements IEmployeeDAO
 {
 	// 인터페이스 자료형 구성
-	private DataSource datasource;
+	private DataSource dataSource;
 	
 	// setter 메소드 정의(구성)
-	public void setDatasource(DataSource datasource)
+	public void setDataSource(DataSource dataSource)
 	{
-		this.datasource = datasource;
+		this.dataSource = dataSource;
 	}
-
 	
 	// 인터페이스에서 선언된 메소드 재정의 -----------------------------------------------------------------------
 	
@@ -39,7 +38,7 @@ public class EmployeeDAO implements IEmployeeDAO
 	{
 		ArrayList<Employee> result = new ArrayList<Employee>();
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "SELECT EMPLOYEEID, NAME, SSN, BIRTHDAY, LUNAR, LUNARNAME"
 				+ ", TELEPHONE, DEPARTMENTID, DEPARTMENTNAME, POSITIONID, POSITIONNAME"
@@ -81,14 +80,14 @@ public class EmployeeDAO implements IEmployeeDAO
 		return result;
 	}
 
-	
+
 	// 지역 리스트 출력
 	@Override
 	public ArrayList<Region> regionList() throws SQLException
 	{
 		ArrayList<Region> result = new ArrayList<Region>();
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "SELECT REGIONID, REGIONNAME, DELCHECK FROM REGIONVIEW";
 		
@@ -119,7 +118,7 @@ public class EmployeeDAO implements IEmployeeDAO
 	{
 		ArrayList<Department> result = new ArrayList<Department>();
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "SELECT DEPARTMENTID, DEPARTMENTNAME, DELCHECK FROM DEPARTMENTVIEW";
 		
@@ -151,7 +150,7 @@ public class EmployeeDAO implements IEmployeeDAO
 	{
 		ArrayList<Position> result = new ArrayList<Position>();
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "SELECT POSITIONID, POSITIONNAME, MINBASICPAY, DELCHECK FROM POSITIONVIEW ORDER BY POSITIONID";
 		
@@ -183,7 +182,7 @@ public class EmployeeDAO implements IEmployeeDAO
 	{
 		int result = 0;
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "SELECT MINBASICPAY FROM POSITION WHERE POSITIONID=?";
 		
@@ -211,7 +210,7 @@ public class EmployeeDAO implements IEmployeeDAO
 	{
 		int result = 0;
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "INSERT INTO EMPLOYEE( EMPLOYEEID, NAME, SSN1, SSN2, BIRTHDAY"
 				+ ", LUNAR, TELEPHONE, DEPARTMENTID, POSITIONID, REGIONID, BASICPAY, EXTRAPAY)"
@@ -247,7 +246,7 @@ public class EmployeeDAO implements IEmployeeDAO
 	{
 		int result = 0;
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "DELETE FROM EMPLOYEE WHERE EMPLOYEEID=?";
 		
@@ -270,7 +269,7 @@ public class EmployeeDAO implements IEmployeeDAO
 	{
 		int result = 0;
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "UPDATE EMPLOYEE SET NAME=? , BIRTHDAY=TO_DATE(?,'YYYY-MM-DD')"
 				+ ", LUNAR=? , TELEPHONE=? , DEPARTMENTID=? , POSITIONID=?"
@@ -307,7 +306,7 @@ public class EmployeeDAO implements IEmployeeDAO
 	{
 		Employee employee = new Employee();
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "SELECT EMPLOYEEID, NAME, SS1, TO_CHAR(BIRTHDAY, 'YYYY-MM-DD') AS BIRTHDAY"
 				+ ", LUNAR, TELEPHONE, DEPARTMENTID, POSITIONID, REGIONID, BASICPAY"
@@ -347,7 +346,7 @@ public class EmployeeDAO implements IEmployeeDAO
 	{
 		String result = null;
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "SELECT NAME FROM EMPLOYEE WHERE EMPLOYEEID=? AND SSN2=CRYPTPACK.ENCRYPT(?,?)";
 		
@@ -374,7 +373,7 @@ public class EmployeeDAO implements IEmployeeDAO
 	{
 		String result = null;
 		
-		Connection conn = datasource.getConnection();
+		Connection conn = dataSource.getConnection();
 		
 		String sql = "SELECT NAME"
 				+ " FROM EMPLOYEE"
