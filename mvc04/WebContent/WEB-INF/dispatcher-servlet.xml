@@ -16,6 +16,54 @@
     <!--      이 과정에서 Front Controller 가 갖고 있는 확장자의 형태로 구성한다. -->
     <!--    - 『class=""』 속성은 Controller 객체의 클래스 경로 및 이름을 등록한다.-->
     
+    <!-- 
+        #17. dispatcher-servlet.xml
+        - 컨트롤러 객체 등록
+        - URL 매핑 주소 등록
+	    - SimpleDriverDataSource 객체 등록
+		- 의존 객체 주입 설정
+		- DAO 객체 등록
+     -->
+     
+     <!-- Connection 을 위한 DataSource 등록 → SimpleDriverDataSource -->
+     <bean id="localDataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource" >
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@211.238.142.159:1521:xe"></property>
+		<property name="username" value="scott"></property>
+		<property name="password" value="tiger"></property>
+	</bean>
+     
+     <bean id="remoteDataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource" >
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@211.238.142.158:1521:xe"></property>
+		<property name="username" value="scott"></property>
+		<property name="password" value="tiger"></property>
+	</bean>
+     
+     <!-- DAO 등록 -->
+     <bean id="employeeDAO" class="com.test.mvc.EmployeeDAO">
+		<property name="dataSource" ref="localDataSource"></property>
+	 </bean>
+	
+	 <bean id="regionDAO" class="com.test.mvc.RegionDAO">
+		<property name="dataSource" ref="localDataSource"></property>
+	 </bean>
+	
+	 <bean id="departmentDAO" class="com.test.mvc.DepartmentDAO">
+		<property name="dataSource" ref="localDataSource"></property>
+	 </bean>
+	
+	 <bean id="positionDAO" class="com.test.mvc.PositionDAO">
+		<property name="dataSource" ref="localDataSource"></property>
+	 </bean>
+     
+     <!-- Employee 관련 Controller 등록 -->
+     <!-- <bean name="/employeelist.action" class="com.test.mvc.EmployeeListController">
+     	<property name="dao" ref="employeeDAO"></property>	employeeDAO 처리 받을 수 있게 주입 시켜달라
+     </bean> -->
+     <bean name="/employeelist.action" class="com.test.mvc.EmployeeListController">
+		<property name="dao" ref="employeeDAO"></property>
+	 </bean>
     
 
 </beans>

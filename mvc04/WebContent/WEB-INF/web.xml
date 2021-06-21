@@ -14,6 +14,13 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 	
+	<!--
+	  #16. web.xml
+	  - DispatcherServlet 객체 등록
+	  - URL 매핑 주소 등록
+	  - 인코딩 필터 등록
+	-->
+	
 	<!-- ※ Spring MVC Framework 등록 -->
 	<!--    → Front Controller 등록 -->
 	<!--    → DispatcherServlet 객체 등록 -->
@@ -28,6 +35,25 @@
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>*.action</url-pattern>
 	</servlet-mapping>
+	
+	<!-- check~!! -->
+	<!-- 인코딩 필터 등록 → CharacterEncodingFilter -->
+	<!-- 우리가 직접 쓸 수 있지만 스프링이 만든거 가져와서 쓰려는거임 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>	 <!-- 필터 쓰겠다 -->
+		
+		<!-- 필터에 파라미터 초기값 지정 -->
+		<init-param>
+			<param-name>encoding</param-name>	<!-- encoding의 초기값을 UTF-8로 설정 (인코딩속성)-->
+			<param-value>UTF-8</param-value>	<!-- 요 값을 필터에 저장해달라 -->
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 	
 	
 </web-app>
