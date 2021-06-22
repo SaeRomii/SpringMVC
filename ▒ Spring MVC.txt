@@ -321,21 +321,41 @@ http://localhost:8090/mvc03/memberlist.action
         (employeelist.action)
 
 
-   #16. web.xml			    → DispatcherServlet 객체 등록 / URL 매핑 주소 등록
+   #16. web.xml			 → DispatcherServlet 객체 등록 / URL 매핑 주소 등록
 
 
-   #17. dispatcher-servlet.xml      → 컨트롤러 객체 등록 / URL 매핑 주소 등록
+   #17. dispatcher-servlet.xml   → 컨트롤러 객체 등록 / URL 매핑 주소 등록
 				       SimpleDriverDataSource 객체 등록
 				       의존 객체 주입 설정
 				       DAO 객체 등록
 
 
-
-
-
-
-   #15. EmployeeInsertForm.jsp  → 직원 데이터 입력 폼 페이지.
+   #18. EmployeeInsertForm.jsp   → 직원 데이터 입력 폼 페이지.
 				   AJAX, jQuery 기능 포함.
+
+
+   #19. EmployeeInsertFormController.java
+	(employeeinsertform.action)
+
+
+        직원추가 > 폼의 데이터 체크 > employeeinsert.action
+
+
+   #20. AjaxController.java
+	(ajax.action)
+
+
+   #21. EmployeeInsertController.java
+	(employeeinsert.action)
+
+
+
+
+
+
+
+
+
    #16. EmployeeUpdateForm.jsp  → 직원 데이터 수정 폼 페이지.
 				   AJAX, jQuery 기능 포함.
 
@@ -368,14 +388,11 @@ http://localhost:8090/mvc03/memberlist.action
 
 
 
-   #31. EmployeeInsertFormController.java
-	(employeeinsertform.action)
 
-   #32. AjaxController.java
-	(ajax.action)
 
-   #33. EmployeeInsertController.java
-	(employeeinsert.action)
+
+
+
 
    #34. EmployeeUpdateFormController.java
 	(employeeupdateform.action)
