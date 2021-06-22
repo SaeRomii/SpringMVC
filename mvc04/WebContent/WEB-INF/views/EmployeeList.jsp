@@ -36,7 +36,8 @@
 		
 		<div>
 			<form action="">
-				<input type="button" value="직원 추가" class="btn">
+				<input type="button" value="직원 추가" class="btn"
+				onclick="location.href='employeeinsertform.action'">	<!-- 직원 추가 할 수 있는 폼 떠야함 employeeinsertform.action요청 -->
 			</form>
 		</div>
 		
