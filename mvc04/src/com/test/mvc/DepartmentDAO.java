@@ -41,7 +41,7 @@ public class DepartmentDAO implements IDepartmentDAO
 		
 		Connection conn = dataSource.getConnection();
 		
-		String sql = "SELECT DEPARTMENTID, DEPARTMENTNAME DELCHECK FROM DEPARTMENTVIEW ORDER BY DEPARTMENTID";
+		String sql = "SELECT DEPARTMENTID, DEPARTMENTNAME, DELCHECK FROM DEPARTMENTVIEW ORDER BY DEPARTMENTID";
 		
 		/*
 		 * PreparedStatement pstmt = conn.prepareStatement(sql);

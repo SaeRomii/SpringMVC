@@ -302,42 +302,42 @@ public class EmployeeDAO implements IEmployeeDAO
 	
 	// 직원 검색(직원 수정 삭제 위해)
 	@Override
-	public Employee searchId(String employeeId) throws SQLException
-	{
-		Employee employee = new Employee();
-		
-		Connection conn = dataSource.getConnection();
-		
-		String sql = "SELECT EMPLOYEEID, NAME, SS1, TO_CHAR(BIRTHDAY, 'YYYY-MM-DD') AS BIRTHDAY"
-				+ ", LUNAR, TELEPHONE, DEPARTMENTID, POSITIONID, REGIONID, BASICPAY"
-				+ ", EXTRAPAY FROM EMPLOYEE WHERE EMPLOYEEID = ?";
-		
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, Integer.parseInt(employeeId));
-		
-		ResultSet rs = pstmt.executeQuery();
-		while (rs.next())
-		{
-			employee.setEmployeeId(rs.getString("EMPLOYEEID"));
-			employee.setName(rs.getString("NAME"));
-			employee.setSsn1(rs.getString("SSN1"));
-			employee.setBirthday(rs.getString("BIRTHDAY"));
-			employee.setLunar(rs.getInt("LUNAR"));
-			employee.setTelephone(rs.getString("TELEPHONE"));
-			employee.setDepartmentId(rs.getString("DEPARTMENTID"));
-			employee.setPositionId(rs.getString("POSITIONID"));
-			employee.setRegionId(rs.getString("REGIONID"));
-			employee.setBasicPay(rs.getInt("BASICPAY"));
-			employee.setExtraPay(rs.getInt("EXTRAPAY"));
-			
-		}
-		
-		rs.close();
-		pstmt.close();
-		conn.close();
-		
-		return employee;
-	}
+    public Employee searchId(String employeeId) throws SQLException
+    {
+       Employee result = new Employee();
+      
+       Connection conn = dataSource.getConnection();
+      
+       String sql = "SELECT EMPLOYEEID, NAME, SSN1, TO_CHAR(BIRTHDAY,'YYYY-MM-DD') AS BIRTHDAY"
+               + ", LUNAR, TELEPHONE, DEPARTMENTID, POSITIONID, REGIONID, BASICPAY, EXTRAPAY"
+               + " FROM EMPLOYEE WHERE EMPLOYEEID=?";
+      
+       PreparedStatement pstmt = conn.prepareStatement(sql);
+       pstmt.setString(1, employeeId);
+      
+       ResultSet rs = pstmt.executeQuery();
+      
+       while (rs.next())
+       {
+          result.setEmployeeId(rs.getString("EMPLOYEEID"));
+          result.setName(rs.getString("NAME"));
+          result.setSsn1(rs.getString("SSN1"));
+          result.setBirthday(rs.getString("BIRTHDAY"));
+          result.setLunar(rs.getInt("LUNAR"));
+          result.setTelephone(rs.getString("TELEPHONE"));
+          result.setDepartmentId(rs.getString("DEPARTMENTID"));
+          result.setPositionId(rs.getString("POSITIONID"));
+          result.setRegionId(rs.getString("REGIONID"));
+          result.setBasicPay(rs.getInt("BASICPAY"));
+          result.setExtraPay(rs.getInt("EXTRAPAY"));
+       }
+
+       rs.close();
+       pstmt.close();
+       conn.close();
+      
+       return result;
+    }
 
 	
 	// 일반 사원 로그인
