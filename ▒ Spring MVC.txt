@@ -345,19 +345,35 @@ http://localhost:8090/mvc03/memberlist.action
 	(ajax.action)
 
 
-   #21. EmployeeInsertController.java
+   #21. Ajax.jsp		→ AJAX 객체 구성 페이지.
+
+
+   #22. EmployeeInsertController.java
 	(employeeinsert.action)
 
 
-
-
-
-
-
-
-
-   #16. EmployeeUpdateForm.jsp  → 직원 데이터 수정 폼 페이지.
+   #23. EmployeeUpdateForm.jsp  → 직원 데이터 수정 폼 페이지.
 				   AJAX, jQuery 기능 포함.
+
+
+   #24. EmployeeUpdateFormController.java
+	(employeeupdateform.action)
+
+
+   #25. EmployeeUpdateController.java
+	(employeeupdate.action)
+
+
+   #26. EmployeeDeleteController.java
+	(employeedelete.action)
+
+
+
+
+
+
+
+
 
    #17. DepartmentList.jsp	→ 부서 리스트 출력 페이지.
 
@@ -377,7 +393,7 @@ http://localhost:8090/mvc03/memberlist.action
 
    #25. RegionUpdateForm.jsp    → 직위 데이터 수정 폼 페이지.
 
-   #26. Ajax.jsp		→ AJAX 객체 구성 페이지.
+
 
    #27. LoginForm.jsp		→ 관리자, 일반직원 로그인 폼 페이지.
 
@@ -394,14 +410,11 @@ http://localhost:8090/mvc03/memberlist.action
 
 
 
-   #34. EmployeeUpdateFormController.java
-	(employeeupdateform.action)
 
-   #35. EmployeeUpdateController.java
-	(employeeupdate.action)
 
-   #36. EmployeeDeleteController.java
-	(employeedelete.action)
+
+
+
 
    #37. DepartmentListController.java
    #38. DepartmentInsertFormController.java
