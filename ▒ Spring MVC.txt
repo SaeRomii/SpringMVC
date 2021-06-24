@@ -368,6 +368,42 @@ http://localhost:8090/mvc03/memberlist.action
 	(employeedelete.action)
 
 
+   #27. LoginForm.jsp		→ 관리자, 일반직원 로그인 폼 페이지.
+
+
+   #28. LoginFormController.java
+
+
+   #29. LoginController.java
+
+
+   #30. LogoutController.java
+
+
+   #31. EmpList.jsp		→ 일반 직원 전용 리스트 출력 페이지
+				   (입력, 수정, 삭제 기능 없음)
+
+
+   #32. EmpListController.java
+
+
+   #33. RegionList.jsp          → 지역 리스트 출력 페이지.
+
+
+   #34. RegionListController.java
+
+
+   #35. dispatcher-servlet.xml   → 컨트롤러 객체 등록 / URL 매핑 주소 등록
+				       SimpleDriverDataSource 객체 등록
+				       의존 객체 주입 설정
+				       DAO 객체 등록
+
+
+   #36. RegionInsertForm.jsp    → 지역 데이터 입력 폼 페이지.  → 여기 작업중
+
+
+
+
 
 
 
@@ -381,9 +417,9 @@ http://localhost:8090/mvc03/memberlist.action
 
    #19. DepartmentUpdateForm.jsp→ 부서 데이터 수정 폼 페이지.
 
-   #20. RegionList.jsp          → 지역 리스트 출력 페이지.
 
-   #21. RegionInsertForm.jsp    → 지역 데이터 입력 폼 페이지.
+
+
 
    #22. RegionUpdateForm.jsp    → 지역 데이터 수정 폼 페이지.
 
@@ -395,12 +431,11 @@ http://localhost:8090/mvc03/memberlist.action
 
 
 
-   #27. LoginForm.jsp		→ 관리자, 일반직원 로그인 폼 페이지.
+
 
    #28. LogoutForm.jsp		→ 로그아웃 처리와 관련한 폼 페이지.
 
-   #29. EmpList.jsp		→ 일반 직원 전용 리스트 출력 페이지
-				   (입력, 수정, 삭제 기능 없음)
+
 
 
 
@@ -423,7 +458,7 @@ http://localhost:8090/mvc03/memberlist.action
    #41. DepartmentUpdateController.java
    #42. DepartmentDeleteController.java
 
-   #43. RegionListController.java
+
    #44. RegionInsertFormController.java
    #45. RegionInsertController.java
    #46. RegionUpdateFormController.java
@@ -437,11 +472,10 @@ http://localhost:8090/mvc03/memberlist.action
    #53. PositionUpdateController.java
    #54. PositionDeleteController.java
 
-   #55. LoginFormController.java
-   #56. LoginController.java
-   #57. LogoutController.java
 
-   #58. EmpListController.java
+
+
+
 
 
 
