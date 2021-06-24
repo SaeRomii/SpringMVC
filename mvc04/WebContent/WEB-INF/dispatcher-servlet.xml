@@ -79,6 +79,10 @@
 	 	<property name="dao" ref="employeeDAO"></property>
 	 </bean>
 	 
+	 <bean name="/emplist.action" class="com.test.mvc.EmpListController">
+	 	<property name="dao" ref="employeeDAO"></property>
+	 </bean>
+	 
 	 <bean name="/employeeupdateform.action" class="com.test.mvc.EmployeeUpdateFormController">
 	 	<!-- name값은 employeeupdateformcontroller에 있는거 -->
 	 	<!-- ref값은 위에 DAO 등록에 있는거 -->
@@ -95,6 +99,22 @@
 	 <bean name="/employeedelete.action" class="com.test.mvc.EmployeeDeleteController">
 	 	<property name="dao" ref="employeeDAO"></property>
 	 </bean>
+	 
+	 <!-- Region 관련 Controller 등록 -->
+	 <bean name="/regionlist.action" class="com.test.mvc.RegionListController">
+	 	<property name="dao" ref="regionDAO"></property>
+	 </bean>
+	 
+	 
+	 <!-- Login 및 Logout 관련 Controller 등록 -->
+	 <bean name="/loginform.action" class="com.test.mvc.LoginFormController"></bean>
+	 
+	 <bean name="/login.action" class="com.test.mvc.LoginController">
+	 	<property name="dao" ref="employeeDAO"></property>
+	 </bean>
+	 
+	 <bean name="/logout.action" class="com.test.mvc.LogoutController"></bean>
+	 
     
 
 </beans>
