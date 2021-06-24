@@ -703,6 +703,9 @@ WHERE EMPLOYEEID=3;
 COMMIT;
 --==>> Ä¿¹Ô¿Ï
 
+SELECT *
+FROM REGION;
+
 
 
 
