@@ -393,44 +393,113 @@ http://localhost:8090/mvc03/memberlist.action
    #34. RegionListController.java
 
 
-   #35. dispatcher-servlet.xml   → 컨트롤러 객체 등록 / URL 매핑 주소 등록
+   #. dispatcher-servlet.xml   → 컨트롤러 객체 등록 / URL 매핑 주소 등록
 				       SimpleDriverDataSource 객체 등록
 				       의존 객체 주입 설정
 				       DAO 객체 등록
 
 
-   #36. RegionInsertForm.jsp    → 지역 데이터 입력 폼 페이지.  → 여기 작업중
+   #35. RegionInsertForm.jsp    → 지역 데이터 입력 폼 페이지.
 
 
+   #36. RegionInsertFormController.java
 
 
+   #. dispatcher-servlet.xml   → 컨트롤러 객체 등록 / URL 매핑 주소 등록
+				       SimpleDriverDataSource 객체 등록
+				       의존 객체 주입 설정
+				       DAO 객체 등록
 
 
+   #37. RegionInsertController.java
 
 
+   #38. RegionUpdateForm.jsp    → 지역 데이터 수정 폼 페이지.
 
 
-
-   #17. DepartmentList.jsp	→ 부서 리스트 출력 페이지.
-
-   #18. DepartmentInsertForm.jsp→ 부서 데이터 입력 폼 페이지.
-
-   #19. DepartmentUpdateForm.jsp→ 부서 데이터 수정 폼 페이지.
+   #39. RegionUpdateFormController.java
 
 
+   #40. RegionUpdateController.java
 
 
-
-   #22. RegionUpdateForm.jsp    → 지역 데이터 수정 폼 페이지.
-
-   #23. PositionList.jsp        → 직위 리스트 출력 페이지.
-
-   #24. RegionInsertForm.jsp    → 직위 데이터 입력 폼 페이지.
-
-   #25. RegionUpdateForm.jsp    → 직위 데이터 수정 폼 페이지.
+   #41. RegionDeleteController.java
 
 
+   #42. DepartmentList.jsp	→ 부서 리스트 출력 페이지.
 
+
+   #43. DepartmentListController.java
+
+
+   #44. DepartmentInsertForm.jsp→ 부서 데이터 입력 폼 페이지.
+
+
+   #45. DepartmentInsertFormController.java
+
+
+   #46. DepartmentInsertController.java
+
+
+   #47. DepartmentUpdateForm.jsp→ 부서 데이터 수정 폼 페이지.
+
+
+   #48. DepartmentUpdateFormController.java
+
+
+   #49. DepartmentUpdateController.java
+
+
+   #50. DepartmentDeleteController.java
+
+
+   #51. PositionList.jsp        → 직위 리스트 출력 페이지.
+
+
+   #52. PositionListController.java
+
+
+   #53. PositionInsertForm.jsp → 직위 데이터 입력 폼 페이지
+
+
+   #54. PositionInsertFormController.java
+
+
+   #55. PositionInsertController.java
+
+
+   #56. PositionUpdateForm.jsp → 직위 데이터 수정 폼 페이지
+
+
+   #57. PositionUpdateFormController.java
+
+   #58. PositionUpdateController.java
+
+​
+
+   #59. PositionDeleteController.java
+
+​
+
+   #60. RegList.jsp → 일반 직원 전용 리스트 출력 페이지
+
+   #61. RegListController.java
+
+​
+
+   #62. DepList.jsp → 일반 직원 전용 리스트 출력 페이지
+
+   #63. DepListController.java
+
+​
+
+   #64. PosList.jsp → 일반 직원 전용 리스트 출력 페이지
+
+   #65. PosListController.java
+
+​
+
+   #66. EmpMenu.jsp → 일반 직원 전용 메인 메뉴 뷰 페이지
 
 
    #28. LogoutForm.jsp		→ 로그아웃 처리와 관련한 폼 페이지.
@@ -451,23 +520,23 @@ http://localhost:8090/mvc03/memberlist.action
 
 
 
-   #37. DepartmentListController.java
-   #38. DepartmentInsertFormController.java
-   #39. DepartmentInsertController.java
-   #40. DepartmentUpdateFormController.java
-   #41. DepartmentUpdateController.java
-   #42. DepartmentDeleteController.java
 
 
-   #44. RegionInsertFormController.java
-   #45. RegionInsertController.java
-   #46. RegionUpdateFormController.java
-   #47. RegionUpdateController.java
-   #48. RegionDeleteController.java
 
-   #49. PositionListController.java
-   #50. PositionInsertFormController.java
-   #51. PositionInsertController.java
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    #52. PositionUpdateFormController.java
    #53. PositionUpdateController.java
    #54. PositionDeleteController.java
@@ -494,6 +563,47 @@ http://localhost:8090/mvc04/employeelist.action
 8. dispatcher-servlet.xml
 
 
+
+
+---------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------
+■■■ Spring MVC 프로젝트 실습 05 ■■■
+
+○ Perspective
+   : JavaEE
+
+○ 다이나믹 웹 프로젝트 생성
+   : mvc05
+
+○ 기본 환경 구성 및 라이브러리 설정
+   : mvc00(우리가 임의로 만들어둔 샘플)로 부터 src, WebContent 디렉터리 복사 & 붙여넣기(덮어쓰기)
+
+○ 실습 성격
+   : Annotation 표기법을 활용하여 샘플 기본 기능 구성.
+
+○ 기능 구현
+   - 페이지 요청 및 응답(mvc)
+   
+
+○ 물리적 파일 구성
+   - web.xml		 	→ DispatcherServlet 객체 등록
+				→ URL 매핑 주소 등록
+				→ 필터 적용
+
+   - dispatcher-servlet.xml  	→ 『<context:component-scan>』 엘리먼트 등록
+
+   - HelloController.java	→ 사용자 정의 컨트롤러(Controller)
+				→ 『@Controller』, 『@RequestMapping』
+				   어노테이션 등록 활용
+
+   - Hello.jsp			→ 사용자 정의 뷰(VIEW) 페이지
+
+   - hello.action		→ 서블릿 주소 요청용 빈 페이지
+
+
+○ 사용자의 최초 요청 주소 
+http://localhost:8090/mvc05/hello.action
 
 
 
