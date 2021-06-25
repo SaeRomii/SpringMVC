@@ -9,21 +9,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>EmpList.jsp</title>
+<title>DepList.jsp</title>
 <link rel="stylesheet" type="text/css" href="<%=cp%>/css/main.css">
 
 </head>
 <body>
 
 <!---------------------------------------------------
-  #31. EmpList.jsp 
-  - 직원 리스트 출력 페이지.
-  - 일반직원이 접근하는 직원 데이터 출력 페이지
+  #62. DepList.jsp
+  - 부서 리스트 출력 페이지.
+  - 일반직원이 접근하는 부서 데이터 출력 페이지
   - 입력 / 수정 / 삭제 기능 없음.
 ----------------------------------------------------->
 
 <div>
-	<!-- 메뉴 영 역 -->
+	<!-- 메뉴 영역 -->
 	<div>
 		<c:import url="EmpMenu.jsp"></c:import>
 	</div>
@@ -31,46 +31,36 @@
 	<!-- 콘텐츠 영역 -->
 	<div id="content">
 		
-		<h1>[ 직원 리스트(일반직원 전용) ]</h1>
+		<h1>[ 부서 리스트(일반직원 전용) ]</h1>
 		<hr>
 		
 		<br><br>
 		
 		<!-- 
-		EMPLOYEEID NAME DEPARTMENTNAME POSITIONNAME REGIONNAME GRADE
+		DEPARTMENTID DEPARTMENTNAME DELCHECK
 		 -->
 		
 		
 		<table id="customers" class="table">
 			<tr>
-				<!-- 항목 6EA -->
+				<!-- 항목 EA -->
 				<th>번호</th>
-				<th>이름</th>
-				<th>지역</th>
-				<th>부서</th>
-				<th>직위</th>
-				<th>등급</th>
+				<th>부서명</th>
+				<th>인원</th>
 			</tr>
 			<!-- 
 			<tr>
 				<td>1</td>
-				<td>박나현</td>
-				<td>서울</td>
 				<td>개발부</td>
-				<td>사원</td>
-				<td>관리자</td>
+				<td>2</td>
 			</tr>
 			 -->
 			 
-			<c:forEach var="employee" items="${employeeList }">
-			<!-- emloyeeList에는 주민번호 생년월일 정보 다 들어가있음 내가 필요한 것만 골라서 씀 -->
+			<c:forEach var="department" items="${departmentList }">
 			<tr>
-				<td>${employee.employeeId }</td>
-				<td>${employee.name }</td>
-				<td>${employee.regionName }</td>
-				<td>${employee.departmentName }</td>
-				<td>${employee.positionName }</td>
-				<td>${employee.grade==0 ? "관리자" : "일반직원" }</td>
+				<td>${department.departmentId }</td>
+				<td>${department.departmentName }</td>
+				<td>${department.delCheck }</td>
 			</tr>
 			</c:forEach>
  		</table>
