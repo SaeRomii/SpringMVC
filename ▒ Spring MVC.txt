@@ -564,9 +564,6 @@ http://localhost:8090/mvc04/employeelist.action
 
 
 
-
----------------------------------------------------------------------------------------------------
-
 -----------------------------------------------------------------------------------------------------------------
 ■■■ Spring MVC 프로젝트 실습 05 ■■■
 
@@ -604,6 +601,57 @@ http://localhost:8090/mvc04/employeelist.action
 
 ○ 사용자의 최초 요청 주소 
 http://localhost:8090/mvc05/hello.action
+
+
+-----------------------------------------------------------------------------------------------------------------
+■■■ Spring MVC 프로젝트 실습 06 ■■■
+
+○ Perspective
+   : JavaEE
+
+○ 다이나믹 웹 프로젝트 생성
+   : mvc06
+
+○ 기본 환경 구성 및 라이브러리 설정
+   : mvc00(우리가 임의로 만들어둔 샘플)로 부터 src, WebContent 디렉터리 복사 & 붙여넣기(덮어쓰기)
+
+○ 실습 성격
+   - Annotation 표기법을 활용하여 폼 데이터 전송 및 수신
+   - 데이터베이스 활용
+
+○ 기능 구현
+   - 폼 데이터 전송 및 수신
+   - 데이터베이스 연결 및 데이터 저장
+
+○ 사전 작업
+   - TBL_MEMBERLIST 테이블 및 주요 쿼리문 구성   
+
+○ 물리적 파일 구성
+   - mvc06_scott.sql
+
+   - DBConn.java
+   - MemberDTO.java
+   - MemberDAO.java
+
+   - MemberList.jsp
+
+   - web.xml		 	→ DispatcherServlet 객체 등록
+				→ URL 매핑 주소 등록
+				→ 필터 적용
+
+   - dispatcher-servlet.xml  	→ 『<context:component-scan>』 엘리먼트 등록
+
+   - MemberRecordController.java→ 사용자 정의 컨트롤러(Controller)
+				→ 『@Controller』, 『@RequestMapping』
+				   어노테이션 등록 활용
+				   비즈니스 로직 처리(메소드 단위)
+
+
+   - memberlist.action		→ 서블릿 주소 요청용 빈 페이지
+
+
+○ 사용자의 최초 요청 주소 
+http://localhost:8090/mvc05/memberlist.action
 
 
 
