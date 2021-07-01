@@ -1,14 +1,13 @@
-/*====================
+/*==========================
    StudentDTO.java
-====================*/
+==========================*/
 
 package com.test.mybatis;
 
 public class StudentDTO
 {
-	// 주요 속성 구성
-	private String sid, name, tel;	//-- 아이디, 이름, 전화번호
-	private int sub;				//-- 참조하는 레코드 수
+	private String sid, name, tel;
+	private int sub;
 	
 	// getter / setter 구성
 	public String getSid()
@@ -43,5 +42,6 @@ public class StudentDTO
 	{
 		this.sub = sub;
 	}
+	
 	
 }

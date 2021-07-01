@@ -9,16 +9,16 @@ import java.util.ArrayList;
 
 public interface IStudentDAO
 {
+	// 학생 인원 수 확인
+	public ArrayList<StudentDTO> list();
+	
 	// 인원 수 확인
 	public int count();
 	
-	// 학생 리스트 확인
-	public ArrayList<StudentDTO> list();
+	// 데이터 추가
+	public int add(StudentDTO student);
 	
-	// 학생 데이터 추가
-	public int add(StudentDTO s);
-	
-	// 학생 데이터 확인(sid를 활용하여 학생 정보 검색)
+	// 데이터 확인(sid검색)
 	public StudentDTO search(String sid);
-	
+
 }

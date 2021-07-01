@@ -1,95 +1,44 @@
-/*==============================
+/*====================================
    StudentController.java
-   - 컨트롤러
-==============================*/
+   - 컨트롤러(사용자 정의 컨트롤러)
+====================================*/
 
 package com.test.mybatis;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class StudentController
 {
+	// SqlSession 을 활용하여 마이바티스 객체 의존성 (자동) 주입
 	@Autowired
-	private SqlSession sqlSession;
+	private SqlSession sqlSession;	// bean으로 구성, 주입시키는 방법 가능하지만 편하게 하려고 Annotation 방법 쓰는거임
+									// 찾아서 자동으로 주입시켜줘~
 	
+	// 매개변수를 정의하는 과정에서 매개변수 목록에 적혀있는
+	// 클래스의 객체 정보는 스프링이 제공한다.
+	
+	// 사용자의 요청 주소와 메소드를 매핑하는 과정 필요
+	// @RequestMapping(value = "요청주소", method = "페이지요청및데이터전송방식")
+	// 이 때, 전송 방식은 submit 액션인 경우만 POST 
+	// 나머지 모든 전송 방식은 GET 으로 처리한다.
 	@RequestMapping(value = "/studentlist.action", method = RequestMethod.GET)
-	public String studentList(ModelMap model)
+	public String studentList(Model model)
 	{
-		String result = "";
+		String result = null;
 		
 		IStudentDAO dao = sqlSession.getMapper(IStudentDAO.class);
 		
 		model.addAttribute("count", dao.count());
-		model.addAttribute("list", dao.list());
+		model.addAttribute("list", dao.list());			// 넘겨진거 가지고 클라이언트 만나라~~
 		
-		result = "WEB-INF/views/StudentList.jsp";
-		
-		return result;
-	}
-	
-	@RequestMapping(value = "/studentinsertform.action", method=RequestMethod.GET)
-	public String studentInsertForm()
-	{
-		String result = null;
-		
-		result = "WEB-INF/view/St  udentInsertForm.jsp";
+		result = "/WEB-INF/views/StudentList.jsp";
 		
 		return result;
-	}
-	
-	@RequestMapping(value = "/studentinsert.action", method=RequestMethod.POST)
-	public String studentInsert(StudentDTO student) 
-	{
-		IStudentDAO dao = sqlSession.getMapper(IStudentDAO.class);
-		
-		dao.add(student);
-		
-		//-- 별도의 뷰 페이지 만들지 않고 주소 재지정함
-		return "redirect:studentlist.action";
-
-	}
-	
-	
-	@RequestMapping(value = "/gradelist.action", method=RequestMethod.GET)
-	public String gradeList(ModelMap model) 
-	{
-		String result = null;
-		
-		IGradeDAO dao = sqlSession.getMapper(IGradeDAO.class);
-		
-		model.addAttribute("count", dao.count());
-		model.addAttribute("list", dao.list());
-		
-		result = "WEB-INF/view/GradeList.jsp";
-		
-		return result;
-
-	}
-	
-	@RequestMapping(value = "/gradeinsertform.action", method=RequestMethod.GET)
-	public String gradeInsertForm()
-	{
-		String result = null;
-		
-		result = "WEB-INF/view/GradeInsertForm.jsp";
-		
-		return result;
-	}
-	
-	@RequestMapping(value = "/gradeinsert.action", method=RequestMethod.POST)
-	public String gradeInsert(GradeDTO grade) 
-	{
-		IGradeDAO dao = sqlSession.getMapper(IGradeDAO.class);
-		
-		dao.add(grade);
-		
-		//-- 별도의 뷰 페이지 만들지 않고 주소 재지정함
-		return "redirect:gradelist.action";
 	}
 }
